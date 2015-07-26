@@ -1,0 +1,15 @@
+{
+  "name": "findAndReplaceDOMText",
+  "homepage": "https://github.com/padolsey/findAndReplaceDOMText",
+  "version": "0.4.4",
+  "_release": "0.4.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.4",
+    "commit": "0d1a0759a4891c1de5c61ecaa92d0a78ca242225"
+  },
+  "_source": "git://github.com/padolsey/findAndReplaceDOMText.git",
+  "_target": "~0.4.4",
+  "_originalSource": "git://github.com/padolsey/findAndReplaceDOMText.git",
+  "_direct": true
+}

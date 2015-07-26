@@ -1,0 +1,16 @@
+{
+  "name": "findandreplacedomtext",
+  "version": "0.4.4",
+  "main": "./src/findAndReplaceDOMText.js",
+  "description": "findAndReplaceDOMText: DOM find/replace utility",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/padolsey/findAndReplaceDOMText.git"
+  },
+  "author": "James Padolsey",
+  "license": "unlicense",
+  "bugs": {
+    "url": "https://github.com/padolsey/findAndReplaceDOMText/issues"
+  },
+  "homepage": "https://github.com/padolsey/findAndReplaceDOMText"
+}
