@@ -1,10 +1,10 @@
 {
   "name": "indieweb-components",
-  "version": "0.0.0",
   "authors": [
     "Greg V <greg@unrelenting.technology>"
   ],
   "description": "Web Components for the IndieWeb (<indie-action> for indie-config, <fragmention-target>)",
+  "homepage": "https://myfreeweb.github.io/indieweb-components",
   "keywords": [
     "web-components",
     "web-component",
@@ -22,6 +22,10 @@
     "bower_components",
     "test",
     "tests"
+  ],
+  "main": [
+    "indie-action.html",
+    "fragmention-target.html"
   ],
   "devDependencies": {
     "webcomponentsjs": "~0.7.7"

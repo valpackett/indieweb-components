@@ -11,8 +11,8 @@
 			fragmention-exact { background: #AB759F; }
 		</style>
 		<script>
-		if (!('registerElement' in document))
-			document.write('<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></sc'+'ript>');
+			if (!('registerElement' in document && 'import' in document.createElement('link')))
+				document.write('<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></sc'+'ript>');
 		</script>
 		<link rel="import" href="bower_components/indieweb-components/indie-action.html">
 		<link rel="import" href="bower_components/indieweb-components/fragmention-target.html">
@@ -23,6 +23,8 @@
 
 		<section>
 			<h2>indie-action</h2>
+			If you have set up <a href="http://indiewebcamp.com/indie-config">indie-config</a>, this should link to your posting app instead of Twitter.
+			<a href="https://github.com/myfreeweb/indieweb-components#indie-action">More info in the README</a>.
 			<indie-action do="reply" with="https://unrelenting.technology/notes/2015-07-03-12-48-01">
 				<a href="https://twitter.com/intent/reply?tweet_id=616951543720493057">Reply</a>
 			</indie-action>
@@ -30,7 +32,9 @@
 
 		<section>
 			<h2>fragmention-target</h2>
-			<a href="##sticky+systems+engineer">##sticky+systems+engineer</a>
+			This is an element you can <a href="https://indiewebcamp.com/fragmention">fragmention</a>.
+			<a href="https://github.com/myfreeweb/indieweb-components#fragmention-target">More info in the README</a>.<br>
+			Click: <a href="##sticky+systems+engineer">##sticky+systems+engineer</a>
 			<a href="#id-anchor">#id-anchor</a>
 			<a href="#name-anchor">#name-anchor</a>
 			<fragmention-target exact>
