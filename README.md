@@ -6,6 +6,8 @@
 [Web Components]: http://webcomponents.org
 [IndieWeb]: https://indiewebcamp.com
 
+## [DEMO PAGE](https://myfreeweb.github.io/indieweb-components)
+
 ## Elements
 
 ### indie-action
