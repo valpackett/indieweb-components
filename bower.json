@@ -4,14 +4,16 @@
   "authors": [
     "Greg V <greg@unrelenting.technology>"
   ],
-  "description": "Web Components for the IndieWeb (<indie-action> that uses indie-config)",
+  "description": "Web Components for the IndieWeb (<indie-action> for indie-config, <fragmention-target>)",
   "keywords": [
     "web-components",
     "web-component",
     "indieweb",
     "indie-action",
     "indie-config",
-    "webactions"
+    "webactions",
+    "fragmentions",
+    "fragmention"
   ],
   "license": "ISC",
   "ignore": [
