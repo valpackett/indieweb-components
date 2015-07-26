@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>IndieWeb Components demo/test page</title>
+		<style>
+			body { font-family: 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; }
+			a { color: #ba2323; } a:hover { color: #da4343; }
+			section { background: #efefef; border-radius: 3px; margin: 1em 0; padding: 0.5em; }
+		</style>
+		<script>
+		if (!('registerElement' in document))
+			document.write('<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></sc'+'ript>');
+		</script>
+		<link rel="import" href="indie-action.html">
+	</head>
+	<body>
+		<h1><a href="https://github.com/myfreeweb/indieweb-components">indieweb-components</a></h1>
+		(usage info is &uarr;&uarr;&uarr; there &uarr;&uarr;&uarr;)
+
+		<section>
+			<h2>indie-action</h2>
+			<indie-action do="reply" with="https://unrelenting.technology/notes/2015-07-03-12-48-01">
+				<a href="https://twitter.com/intent/reply?tweet_id=616951543720493057">Reply</a>
+			</indie-action>
+		</section>
+
+		<footer>
+			<a href="https://unrelenting.technology">unrelenting.technology</a>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "indieweb-components",
+  "version": "0.0.0",
+  "authors": [
+    "Greg V <greg@unrelenting.technology>"
+  ],
+  "description": "Web Components for the IndieWeb (<indie-action> that uses indie-config)",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "indieweb",
+    "indie-action",
+    "indie-config",
+    "webactions"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "webcomponentsjs": "~0.7.7"
+  }
+}
