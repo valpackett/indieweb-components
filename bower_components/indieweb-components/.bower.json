@@ -1,0 +1,41 @@
+{
+  "name": "indieweb-components",
+  "authors": [
+    "Greg V <greg@unrelenting.technology>"
+  ],
+  "description": "Web Components for the IndieWeb (<indie-action> for indie-config, <fragmention-target>)",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "indieweb",
+    "indie-action",
+    "indie-config",
+    "webactions",
+    "fragmentions",
+    "fragmention"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "webcomponentsjs": "~0.7.7"
+  },
+  "dependencies": {
+    "findAndReplaceDOMText": "git://github.com/padolsey/findAndReplaceDOMText.git#~0.4.4"
+  },
+  "homepage": "https://github.com/myfreeweb/indieweb-components",
+  "_release": "a71ad34fa1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a71ad34fa11a036bdeb184edd4f8499ae6b6fc3f"
+  },
+  "_source": "git://github.com/myfreeweb/indieweb-components.git",
+  "_target": "master",
+  "_originalSource": "git://github.com/myfreeweb/indieweb-components.git"
+}
