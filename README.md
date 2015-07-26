@@ -56,6 +56,7 @@ No Shadow DOM -- the lite version of the [Web Components polyfill] is enough!
 A custom element for displaying [fragmentions](https://indiewebcamp.com/fragmention).
 
 In addition to marking the element that contains the linked text with the `fragmention` attribute, it is also able to wrap the exact linked text in a `fragmention-exact` tag.
+To enable this functionality, add the `exact` attribute.
 
 ```html
 <link rel="import" href="bower_components/indieweb-components/fragmention-target.html">
