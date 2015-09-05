@@ -9,7 +9,7 @@
 		location.fragmention = location.fragmention || ''
 
 		function getElementsByText (scope, text) {
-			for (var all = scope.childNodes, index = 0, element, list = [] (element = all[index]) ++index)
+			for (var all = scope.childNodes, index = 0, element, list = []; (element = all[index]); ++index)
 				if (element.nodeType === 1 && (element.innerText || element.textContent || '').replace(/\s+/g, ' ').indexOf(text) !== -1)
 					list = list.concat(getElementsByText(element, text))
 			return list.length ? list : scope
