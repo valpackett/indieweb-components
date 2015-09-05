@@ -3,57 +3,57 @@
 <script>
 	/* fragmention-target Web Component (based on <https://github.com/chapmanu/fragmentions>)
 	 * https://unrelenting.technology */
-	(function() {
-		'use strict';
+	(function () {
+		'use strict'
 
-		location.fragmention = location.fragmention || '';
+		location.fragmention = location.fragmention || ''
 
-		function getElementsByText(scope, text) {
-			for (var all = scope.childNodes, index = 0, element, list = []; (element = all[index]); ++index)
+		function getElementsByText (scope, text) {
+			for (var all = scope.childNodes, index = 0, element, list = [] (element = all[index]) ++index)
 				if (element.nodeType === 1 && (element.innerText || element.textContent || '').replace(/\s+/g, ' ').indexOf(text) !== -1)
-					list = list.concat(getElementsByText(element, text));
-			return list.length ? list : scope;
+					list = list.concat(getElementsByText(element, text))
+			return list.length ? list : scope
 		}
 
 		window.FragmentionTargetElement = document.registerElement('fragmention-target', {
 			prototype: Object.create(HTMLElement.prototype, {
 				highlight: {
-					value: function() {
+					value: function () {
 						if (this.replacer)
-							this.replacer.revert();
+							this.replacer.revert()
 						if (this.$hl)
-							this.$hl.removeAttribute('fragmention', '');
-						var id = location.href.match(/#((?:#|%23)?)(.+)/) || [0,'',''];
-						var node = this.querySelector('[id="'+id[1]+id[2]+'"], [name="'+id[1]+id[2]+'"]'); // non-fragmention anchor
-						var match = decodeURIComponent(id[2].replace(/\+/g, ' ')).split('  ');
-						location.fragmention = match[0];
-						location.fragmentionIndex = parseFloat(match[1]) || 0;
+							this.$hl.removeAttribute('fragmention', '')
+						var id = location.href.match(/#((?:#|%23)?)(.+)/) || [0,'','']
+						var node = this.querySelector('[id="'+id[1]+id[2]+'"], [name="'+id[1]+id[2]+'"]') // non-fragmention anchor
+						var match = decodeURIComponent(id[2].replace(/\+/g, ' ')).split('  ')
+						location.fragmention = match[0]
+						location.fragmentionIndex = parseFloat(match[1]) || 0
 						if (!node && location.fragmention) {
-							var text     = location.fragmention;
-							var elements = getElementsByText(this, text);
-							var length   = elements.length;
-							var modulus  = length && location.fragmentionIndex % length;
-							var index    = length && modulus >= 0 ? modulus : length + modulus;
-							this.$hl     = length && elements[index];
+							var text     = location.fragmention
+							var elements = getElementsByText(this, text)
+							var length   = elements.length
+							var modulus  = length && location.fragmentionIndex % length
+							var index    = length && modulus >= 0 ? modulus : length + modulus
+							this.$hl     = length && elements[index]
 							if (this.$hl) {
-								this.$hl.setAttribute('fragmention', '');
+								this.$hl.setAttribute('fragmention', '')
 								if (this.hasAttribute('exact'))
-									this.replacer = findAndReplaceDOMText(this.$hl, { find: text, wrap: 'fragmention-exact' });
-								this.$hl.scrollIntoView();
+									this.replacer = findAndReplaceDOMText(this.$hl, { find: text, wrap: 'fragmention-exact' })
+								this.$hl.scrollIntoView()
 							} else {
-								this.$hl = null;
+								this.$hl = null
 							}
 						}
 					}
 				},
 				createdCallback: {
-					value: function() {
-						window.addEventListener('hashchange', this.highlight.bind(this));
-						document.addEventListener('readystatechange', this.highlight.bind(this));
-						this.highlight();
+					value: function () {
+						window.addEventListener('hashchange', this.highlight.bind(this))
+						document.addEventListener('readystatechange', this.highlight.bind(this))
+						this.highlight()
 					}
 				}
 			})
-		});
-	})();
+		})
+	})()
 </script>

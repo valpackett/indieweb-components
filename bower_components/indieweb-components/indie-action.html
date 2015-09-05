@@ -1,68 +1,68 @@
 <script>
 	/* indie-action Web Component (loosely based on the original implementation by Pelle Wessman, voxpelli.com)
 	 * https://unrelenting.technology */
-	(function() {
-		'use strict';
+	(function () {
+		'use strict'
 
-		var config;
+		var config
 
 		window.IndieActionElement = document.registerElement('indie-action', {
 			prototype: Object.create(HTMLElement.prototype, {
 				setIndieConfig: {
-					value: function(config) {
-						if (typeof(config) !== 'object') return;
-						var href = config[this.getAttribute('do')];
-						if (typeof(href) !== 'string') return;
-						this._setHref(href);
-						this.setAttribute('indie-configured', '');
+					value: function (config) {
+						if (typeof(config) !== 'object') return
+						var href = config[this.getAttribute('do')]
+						if (typeof(href) !== 'string') return
+						this._setHref(href)
+						this.setAttribute('indie-configured', '')
 					}
 				},
 				_setHref: {
-					value: function(newHref) {
+					value: function (newHref) {
 						// NOTE: relative URLs are resolved by setting .href and reading it again!
-						this.$a.href = this.hasAttribute('with') ? this.getAttribute('with') : location.href;
-						this.$a.href = newHref.replace('{url}', encodeURIComponent(this.$a.href));
+						this.$a.href = this.hasAttribute('with') ? this.getAttribute('with') : location.href
+						this.$a.href = newHref.replace('{url}', encodeURIComponent(this.$a.href))
 					}
 				},
 				createdCallback: {
-					value: function() {
-						this.$a = this.querySelector('a');
-						if (this.$a === undefined) return;
-						this._setHref(this.$a.href.replace('%7Burl%7D', '{url}')); // Replace {url} if it's in the fallback link
+					value: function () {
+						this.$a = this.querySelector('a')
+						if (this.$a === undefined) return
+						this._setHref(this.$a.href.replace('%7Burl%7D', '{url}')) // Replace {url} if it's in the fallback link
 						if (config !== undefined)
-							this.setIndieConfig(config);
-						document.addEventListener('IndieConfigReady', function(e) {
-							this.setIndieConfig(e.detail);
-						}.bind(this));
+							this.setIndieConfig(config)
+						document.addEventListener('IndieConfigReady', function (e) {
+							this.setIndieConfig(e.detail)
+						}.bind(this))
 					}
 				}
 			})
-		});
+		})
 
-		var stopTimeout = setTimeout(stopHandling, 5000);
+		var stopTimeout = setTimeout(stopHandling, 5000)
 
-		var configFrame = document.createElement('iframe');
-		configFrame.style.display = 'none';
-		configFrame.src = 'web+action:load';
+		var configFrame = document.createElement('iframe')
+		configFrame.style.display = 'none'
+		configFrame.src = 'web+action:load'
 
-		var stopHandling = function() {
-			window.removeEventListener('message', loadConfig);
-			configFrame.parentNode.removeChild(configFrame);
-			configFrame = undefined;
-			clearTimeout(stopTimeout);
-		};
+		var stopHandling = function () {
+			window.removeEventListener('message', loadConfig)
+			configFrame.parentNode.removeChild(configFrame)
+			configFrame = undefined
+			clearTimeout(stopTimeout)
+		}
 
-		var loadConfig = function(message) {
-			if (message.source !== configFrame.contentWindow) return;
+		var loadConfig = function (message) {
+			if (message.source !== configFrame.contentWindow) return
 			try {
-				config = JSON.parse(message.data);
-				stopHandling();
-				document.dispatchEvent(new CustomEvent('IndieConfigReady', { detail: config }));
+				config = JSON.parse(message.data)
+				stopHandling()
+				document.dispatchEvent(new CustomEvent('IndieConfigReady', { detail: config }))
 			} catch (_) {}
-		};
+		}
 
-		window.addEventListener('message', loadConfig);
-		document.body.appendChild(configFrame);
+		window.addEventListener('message', loadConfig)
+		document.body.appendChild(configFrame)
 
-	})();
+	})()
 </script>

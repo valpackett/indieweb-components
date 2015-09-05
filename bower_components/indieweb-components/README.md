@@ -8,6 +8,27 @@
 
 ## [DEMO PAGE](https://myfreeweb.github.io/indieweb-components)
 
+## Installation
+
+Use [bower]! (Grab the [Web Components polyfill] while you're at it.)
+
+```sh
+$ bower install --save indieweb-components webcomponentsjs
+```
+
+In your `<head>`, conditionally load the polyfill:
+
+```html
+<script>
+  if (!('registerElement' in document && 'import' in document.createElement('link')))
+    document.write('<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></sc'+'ript>');
+</script>
+```
+
+And use `<link rel="import">` for the components you want.
+
+[bower]: http://bower.io
+
 ## Elements
 
 ### indie-action
@@ -28,13 +49,14 @@ The `indie-action` element also gets the `indie-configured` attribute when the c
 ```
 
 Requires Custom Elements, Custom Events and postMessage.  
-No Shadow DOM -- the lite version of the [Web Components polyfill](https://github.com/webcomponents/webcomponentsjs) is enough!
+No Shadow DOM -- the lite version of the [Web Components polyfill] is enough!
 
 ### fragmention-target
 
 A custom element for displaying [fragmentions](https://indiewebcamp.com/fragmention).
 
 In addition to marking the element that contains the linked text with the `fragmention` attribute, it is also able to wrap the exact linked text in a `fragmention-exact` tag.
+To enable this functionality, add the `exact` attribute.
 
 ```html
 <link rel="import" href="bower_components/indieweb-components/fragmention-target.html">
@@ -53,7 +75,7 @@ In addition to marking the element that contains the linked text with the `fragm
 ```
 
 Requires Custom Elements.  
-No Shadow DOM -- the lite version of the [Web Components polyfill](https://github.com/webcomponents/webcomponentsjs) is enough!
+No Shadow DOM -- the lite version of the [Web Components polyfill] is enough!
 
 ## Contributing
 
@@ -66,3 +88,5 @@ By participating in this project you agree to follow the [Contributor Code of Co
 
 Copyright 2015 Greg V <greg@unrelenting.technology>  
 Available under the ISC license, see the `COPYING` file
+
+[Web Components polyfill]: https://github.com/webcomponents/webcomponentsjs
