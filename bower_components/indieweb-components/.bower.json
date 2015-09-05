@@ -33,11 +33,11 @@
   "dependencies": {
     "findAndReplaceDOMText": "git://github.com/padolsey/findAndReplaceDOMText.git#~0.4.4"
   },
-  "_release": "9784bc41e3",
+  "_release": "29fd6df1ed",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9784bc41e32895b438dfd38c5d13cabc917fecf8"
+    "commit": "29fd6df1edf7904302f2c6536585f50d8da02f5b"
   },
   "_source": "git://github.com/myfreeweb/indieweb-components.git",
   "_target": "master",
