@@ -4,6 +4,10 @@
 	(function () {
 		'use strict'
 
+		/* Ignore unsupported browsers */
+		if (!window.navigator.registerProtocolHandler)
+			return false
+
 		var config
 
 		window.IndieActionElement = document.registerElement('indie-action', {
