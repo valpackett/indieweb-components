@@ -4,12 +4,21 @@
 	(function () {
 		'use strict'
 
+		/* Ignore unsupported browsers */
+		if (!window.navigator.registerProtocolHandler)
+			return false
+
 		var config
+
+		var isLoading = false
+		var clickQueue = []
+		var stopTimeout
 
 		window.IndieActionElement = document.registerElement('indie-action', {
 			prototype: Object.create(HTMLElement.prototype, {
 				setIndieConfig: {
 					value: function (config) {
+						this.$a.removeEventListener('click', this._clickHandler)
 						if (typeof(config) !== 'object') return
 						var href = config[this.getAttribute('do')]
 						if (typeof(href) !== 'string') return
@@ -24,6 +33,17 @@
 						this.$a.href = newHref.replace('{url}', encodeURIComponent(this.$a.href))
 					}
 				},
+				_clickHandler: {
+					value: function (e) {
+						e.preventDefault()
+						clickQueue.push(this)
+						if (!isLoading) {
+							stopTimeout = setTimeout(stopHandling, 5000)
+							document.body.appendChild(configFrame)
+							isLoading = true
+						}
+					}
+				},
 				createdCallback: {
 					value: function () {
 						this.$a = this.querySelector('a')
@@ -34,12 +54,12 @@
 						document.addEventListener('IndieConfigReady', function (e) {
 							this.setIndieConfig(e.detail)
 						}.bind(this))
+						if (!this.hasAttribute('indie-configured'))
+							this.$a.addEventListener('click', this._clickHandler)
 					}
 				}
 			})
 		})
-
-		var stopTimeout = setTimeout(stopHandling, 5000)
 
 		var configFrame = document.createElement('iframe')
 		configFrame.style.display = 'none'
@@ -50,19 +70,20 @@
 			configFrame.parentNode.removeChild(configFrame)
 			configFrame = undefined
 			clearTimeout(stopTimeout)
+			while (clickQueue[0])
+				clickQueue.shift().dispatchEvent(new MouseEvent('click'))
 		}
 
 		var loadConfig = function (message) {
 			if (message.source !== configFrame.contentWindow) return
 			try {
 				config = JSON.parse(message.data)
-				stopHandling()
 				document.dispatchEvent(new CustomEvent('IndieConfigReady', { detail: config }))
+				stopHandling()
 			} catch (_) {}
 		}
 
 		window.addEventListener('message', loadConfig)
-		document.body.appendChild(configFrame)
 
 	})()
 </script>

@@ -40,6 +40,8 @@ For users who have configured their posting tools with the [indie-config](http:/
 The string `{url}` will be replaced in the `href` with the contents of the `with` attribute, resolved against the current domain.
 The `indie-action` element also gets the `indie-configured` attribute when the config is loaded, so you can style the link differently from the fallback link using a selector like `[indie-configured] a`.
 
+The config is loaded lazily now, when the user first clicks an indie-action link.
+
 ```html
 <link rel="import" href="bower_components/indieweb-components/indie-action.html">
 
