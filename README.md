@@ -4,7 +4,7 @@
 
 [VanillaJS]: http://vanilla-js.com
 [Web Components]: http://webcomponents.org
-[IndieWeb]: https://indiewebcamp.com
+[IndieWeb]: https://indieweb.org
 
 ## [DEMO PAGE](https://myfreeweb.github.io/indieweb-components)
 
@@ -13,29 +13,28 @@
 Use [bower]! (Grab the [Web Components polyfill] while you're at it.)
 
 ```sh
-$ bower install --save indieweb-components webcomponentsjs
+$ bower install --save indieweb-components webcomponents/webcomponentsjs#v1
 ```
 
-In your `<head>`, conditionally load the polyfill:
+Load the polyfill:
 
 ```html
-<script>
-  if (!('registerElement' in document && 'import' in document.createElement('link')))
-    document.write('<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></sc'+'ript>');
-</script>
+<script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 ```
 
 And use `<link rel="import">` for the components you want.
 
-[bower]: http://bower.io
+(Alternatively, load only the Custom Elements polyfill and load the JS files, skipping HTML imports. Mind the findAndReplaceDOMText dependency in `fragmention-target`.)
+
+[bower]: https://bower.io
 
 ## Elements
 
 ### indie-action
 
-An implementation of the `indie-action` tag from [webactions](https://indiewebcamp.com/webactions).
+An implementation of the `indie-action` tag from [webactions](https://indieweb.org/webactions).
 
-For users who have configured their posting tools with the [indie-config](http://indiewebcamp.com/indie-config) protocol, the first `a` tag inside of the `indie-action` element will have its `href` replaced with the URL of the matching action.
+For users who have configured their posting tools with the [indie-config](http://indieweb.org/indie-config) protocol, the first `a` tag inside of the `indie-action` element will have its `href` replaced with the URL of the matching action.
 
 The string `{url}` will be replaced in the `href` with the contents of the `with` attribute, resolved against the current domain.
 The `indie-action` element also gets the `indie-configured` attribute when the config is loaded, so you can style the link differently from the fallback link using a selector like `[indie-configured] a`.
@@ -55,7 +54,7 @@ No Shadow DOM -- the lite version of the [Web Components polyfill] is enough!
 
 ### fragmention-target
 
-A custom element for displaying [fragmentions](https://indiewebcamp.com/fragmention).
+A custom element for displaying [fragmentions](https://indieweb.org/fragmention).
 
 In addition to marking the element that contains the linked text with the `fragmention` attribute, it is also able to wrap the exact linked text in a `fragmention-exact` tag.
 To enable this functionality, add the `exact` attribute.
@@ -84,11 +83,11 @@ No Shadow DOM -- the lite version of the [Web Components polyfill] is enough!
 Please feel free to submit pull requests!
 Bugfixes and simple non-breaking improvements will be accepted without any questions :-)
 
-By participating in this project you agree to follow the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/2/0/).
+By participating in this project you agree to follow the [Contributor Code of Conduct](http://contributor-covenant.org/version/1/4/).
 
 ## License
 
-Copyright 2015 Greg V <greg@unrelenting.technology>  
+Copyright 2015-2017 Greg V <greg@unrelenting.technology>  
 Available under the ISC license, see the `COPYING` file
 
 [Web Components polyfill]: https://github.com/webcomponents/webcomponentsjs
