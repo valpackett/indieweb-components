@@ -11,12 +11,12 @@
 			setTimeout(() => {
 				this.es = new EventSource(this.getAttribute('src'))
 				this.es.addEventListener('change', e => {
+					console.log(e)
 					let loc = window.location.toString()
 					const ind = loc.indexOf("#")
 					if (ind > -1) {
 						loc = loc.substring(0, ind)
 					}
-					loc = loc.replace('ruunvald.lan:3000', 'unrelenting.technology').replace('http', 'https')
 					if (e.isTrusted && e.data.split(',').indexOf(loc) > -1) {
 						this.es.close()
 						this.removeAttribute('hidden')
