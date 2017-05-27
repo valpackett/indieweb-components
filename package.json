@@ -1,0 +1,21 @@
+{
+  "name": "indieweb-components",
+  "version": "0.1.3",
+  "description": "Web Components for the IndieWeb (<indie-action> for indie-config, <fragmention-target>, <simple-live>)",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "indieweb",
+    "indie-action",
+    "indie-config",
+    "webactions",
+    "fragmentions",
+    "fragmention"
+  ],
+  "homepage": "https://myfreeweb.github.io/indieweb-components",
+  "author": "Greg V <greg@unrelenting.technology>",
+  "license": "ISC",
+  "dependencies": {
+    "findandreplacedomtext": "^0.4.5"
+  }
+}

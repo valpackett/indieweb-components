@@ -1,32 +1,33 @@
 # indieweb-components
 
-[VanillaJS]-based [Web Components] for the [IndieWeb]!
+Some [Web Components] for [IndieWeb] sites.
 
-[VanillaJS]: http://vanilla-js.com
-[Web Components]: http://webcomponents.org
+[Web Components]: https://www.webcomponents.org
 [IndieWeb]: https://indieweb.org
 
 ## [DEMO PAGE](https://myfreeweb.github.io/indieweb-components)
 
 ## Installation
 
-Use [bower]! (Grab the [Web Components polyfill] while you're at it.)
+Use npm or bower.
 
 ```sh
 $ bower install --save indieweb-components webcomponents/webcomponentsjs#v1
+# or
+$ npm i indieweb-components @webcomponents/webcomponentsjs
 ```
 
 Load the polyfill:
 
 ```html
 <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+<!-- or -->
+<script src="node_modules/webcomponentsjs/webcomponents-loader.js"></script>
 ```
 
 And use `<link rel="import">` for the components you want.
 
 (Alternatively, load only the Custom Elements polyfill and load the JS files, skipping HTML imports. Mind the findAndReplaceDOMText dependency in `fragmention-target`.)
-
-[bower]: https://bower.io
 
 ## Elements
 
@@ -89,5 +90,3 @@ By participating in this project you agree to follow the [Contributor Code of Co
 
 Copyright 2015-2017 Greg V <greg@unrelenting.technology>  
 Available under the ISC license, see the `COPYING` file
-
-[Web Components polyfill]: https://github.com/webcomponents/webcomponentsjs

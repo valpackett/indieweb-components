@@ -3,7 +3,7 @@
   "authors": [
     "Greg V <greg@unrelenting.technology>"
   ],
-  "description": "Web Components for the IndieWeb (<indie-action> for indie-config, <fragmention-target>)",
+  "description": "Web Components for the IndieWeb (<indie-action> for indie-config, <fragmention-target>, <simple-live>)",
   "homepage": "https://myfreeweb.github.io/indieweb-components",
   "keywords": [
     "web-components",
@@ -23,14 +23,10 @@
     "test",
     "tests"
   ],
-  "main": [
-    "indie-action.html",
-    "fragmention-target.html"
-  ],
   "devDependencies": {
-    "webcomponentsjs": "~0.7.7"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#1.0.1"
   },
   "dependencies": {
-    "findAndReplaceDOMText": "git://github.com/padolsey/findAndReplaceDOMText.git#~0.4.4"
+    "findAndReplaceDOMText": "git://github.com/padolsey/findAndReplaceDOMText.git#~0.4.5"
   }
 }
